@@ -2,6 +2,35 @@ radio.onReceivedNumber(function (receivedNumber) {
     while (enviado == 0) {
         basic.pause(1000)
     }
+    basic.pause(100)
+    basic.clearScreen()
+    if (receivedNumber == 1) {
+        basic.showLeds(`
+            . . # . .
+            . # # # .
+            # # # # #
+            . # # # .
+            . . # . .
+            `)
+    }
+    if (receivedNumber == 2) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    }
+    if (receivedNumber == 3) {
+        basic.showLeds(`
+            # # . # #
+            # # . # #
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+    }
 })
 input.onButtonPressed(Button.A, function () {
     basic.showLeds(`
@@ -30,9 +59,9 @@ input.onButtonPressed(Button.AB, function () {
 input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
         # # # # #
-        # . . . #
-        # . . . #
-        # . . . #
+        # # # # #
+        # # # # #
+        # # # # #
         # # # # #
         `)
     radio.sendNumber(2)
@@ -41,7 +70,6 @@ input.onButtonPressed(Button.B, function () {
 })
 let enviado = 0
 radio.setGroup(33)
-radio.sendNumber(33)
 basic.forever(function () {
 	
 })
